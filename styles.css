@@ -1,0 +1,178 @@
+* {
+    list-style-type: none;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+
+    background-color: rgb(39, 39, 39);
+    color: lightgray;
+}
+
+main {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+a {
+    color: lightyellow;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+a:hover {
+    color: lightskyblue;
+    font-size: 125%;
+}
+
+
+.navbar {
+    position: fixed;
+    bottom: 0vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1{
+    color:white;
+    padding-left: 20px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+
+.navbar a:hover{
+    background-color: white;
+    color: black;
+}
+
+
+.cover-section {
+    background-color: black;
+    align-items: center;
+    text-align: center;
+    color: lightgray;
+    padding: 100px;
+
+    height: 50%;
+    text-align: left;
+}
+
+.whisper {
+    opacity: 0.3;
+}
+
+section {
+    padding: 100px;
+    padding-top: 0px;
+}
+
+section h1 {
+    font-size: 4rem;
+}
+
+.header {
+    padding: 100px;
+    background-color: black;
+    color: lightgray;
+}
+
+.cover-section h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+.cover-section h2 {
+    margin: 0px;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.cover-section ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.cover-section li {
+    display: block;
+    padding: 2px;
+}
+
+.cover2-section {
+
+    vertical-align: top;
+    text-align: center;
+    padding: 0px;
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: row;
+    max-height: 300px;
+  }
+
+.grid-container li {
+    height: 300px;
+}
+
+.grid-container img {
+    height: 100%;
+    width: auto;
+  }
+
+
+.scratch-display {
+    display: flex;
+}
+
+.scratch-display h3 {
+    margin: 0px;
+    font-size: 3rem;
+}
+
+.fade-in-quick {
+    animation: fadeIn 0.25s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+@media (max-width: 600px) {
+    .navbar {
+         flex-direction:column;
+    }
+
+    .navbar ul {
+        overflow: auto;
+    }
+
+    .navbar li{
+        float:none
+    }
+
+    .design-wrapper {
+        flex-direction: column;
+    }
+}
