@@ -4,18 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adam McCondochie</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="code.js"></script> 
 </head>
 <body>
 
-    <section class="hero-section fade-in-quick">
-            <h1>Hey, <br>I'm Adam</h1>
-            <h2>I program and design things</h2>
-            <h4 class="whisper">(Psst, work in progress!)</h4>
-    </section>
-
     <header>
         <nav class="navbar">
-            <ul>
+            <li><a href="index.html"><h2>Adam McCondochie</h2></a></li>
+
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="works.html">Works</a></li>
@@ -24,29 +21,46 @@
         </nav>
     </header>
 
-    <main class="scroll-snap">
-        <div class="cover2-section fade-in-quick">
-            <ul>
-                <li><h3>Frontend Web Design</h3></li>
-                <li>HTML/CSS</li>
-                <li>JS/TS</li>
-                <li>React/Next JS</li>
-            </ul>
-
-            <ul>
-                <li><h3>Game Development</h3></li>
-                <li>C#/Java</li>
-                <li>Unity</li>
-                <li>Monogame</li>
-            </ul>
-
-            <ul>
-                <li><h3>Art & Graphic Design</h3></li>
-                <li>Illustrator</li>
-                <li>Photoshop</li>
-                <li>InDesign</li>
-            </ul>
+    <main>
+        <div class="hero-wrapper clip">
+            <div id="mouse-circle" class="mouse-circle unselectable">
+             <div id="mouse-circle-content" class="mouse-circle-content"></div>
+            </div>
+            <section class="hero-section fade-in-quick">  
+                <div class="flex center column">
+                    <h1>Hey, <br>I'm Adam</h1>
+                    <h2>I program and design things</h2>
+                    <h4 class="whisper">(Psst, work in progress!)</h4>
+                </div>
+    
+    
+                <div class="panel-list-wrapper">
+                    <ul class="panel-list">
+                        <li><h3>Frontend Web Design</h3></li>
+                        <li>HTML/CSS</li>
+                        <li>JS/TS</li>
+                        <li>React/Next JS</li>
+                    </ul>
+        
+                    <ul class="panel-list">
+                        <li><h3>Game Development</h3></li>
+                        <li>C#/Java</li>
+                        <li>Unity</li>
+                        <li>Monogame</li>
+                    </ul>
+        
+                    <ul class="panel-list">
+                        <li><h3>Art & Graphic Design</h3></li>
+                        <li>Illustrator</li>
+                        <li>Photoshop</li>
+                        <li>InDesign</li>
+                    </ul>
+                </div>
+            </section>
         </div>
+
+
+
     </main>
     
     <footer>
