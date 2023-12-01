@@ -2,6 +2,11 @@
     list-style-type: none;
     margin: 0px;
     padding: 0px;
+
+}
+
+*::before, *::after{
+    box-sizing: border-box;
 }
 
 :root {
@@ -11,6 +16,8 @@
 
     --a-color: rgb(218, 231, 228);
     --a-color-highlight: white;
+
+    --navbar-height:
 }
 
 html {
@@ -24,21 +31,19 @@ body{
 
 
 .section-highlight {
-    background-color: rgb(15, 10, 22);
-    box-shadow: 0 0 20, 0, white;
+    background-color: rgb(8, 5, 2);
+    box-shadow: 0px 0px 40px 0 black;
 }
 
 a {
     color: var(--a-color);
     text-decoration: none;
-    display: block;
-    padding: 5px;
-    width: fit-content;
+    display: inline-block;
 }
 
 a:hover {
     color: white;
-    font-size: 125%;
+    transform: scale(1.05);
 }
 
 a[href^="http"]::after {
@@ -51,7 +56,7 @@ a[href^="http"]::after {
 }
 
 h1 {
-    font-size: 5rem;
+    font-size: clamp(24px, 10vw, 10vh);
 }
 
 .icon::before {
@@ -61,24 +66,34 @@ h1 {
   }
 
 
-header {
+header {    
     position: sticky;
     top: 0px;
     bottom: 0px;
+    z-index: 2;
 }
 
 .navbar {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border-bottom: solid white 1px;
     background-color: rgba(0, 0, 0, 1);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.4);
+
+    transition: transform .2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .navbar{
+        justify-content: center;
+    }
 }
 
 .spaced {
@@ -89,25 +104,37 @@ header {
     flex-wrap: wrap;
 }
 
-.navbar a:hover {
-    font-size: 100%;
-}
-
-.nav-links {
-    display: flex;
-    flex-direction: row;
-    padding: 0px;
-    margin: 0px;
-}
-
 .nav-links a {
     padding: 15px;
     display: block;
     text-align: center;
 }
 
-.navbar a:hover{
-    background-color: rgba(0, 0, 0, .5);
+.nav-links a::after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+    
+    z-index: 1000;
+
+    width: 100%;
+    height: 0em;
+    background-color: lightblue;
+}
+
+.nav-links a:hover::after {
+    height: .1em;
+}
+
+.nav-links {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
 }
 
 .panel-list-wrapper{
@@ -177,19 +204,59 @@ header {
 
     aspect-ratio: 36/74;
     height: 80vh;
+
+    border-radius: 10px;
+    margin: 1em;
+
+    border: solid grey 1px;
+    box-shadow: 0 0 20px 0 rgba(225,225,225,0.1);
+    transition: box-shadow ease-in-out .1s;
+}
+
+.app-frame:hover{
+    box-shadow: 0 0 20px 0 rgba(225,225,225,0.2);
 }
 
 .scratch-frame {
     aspect-ratio: 485/402;
-    height: 80vw;
-    max-height: 80vh;
+    height: 20vw;
+    width: 100%;
+    max-height: 60vh;
+    max-width: 60vh;
+}
+
+.content-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+}
+
+.content-sidebar > *:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 69%;
+
+    align-items: center;
+}
+
+.content-sidebar > *:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 30%;
+    align-items: center;
+    min-width: 30ch;
 
 }
 
 .yt-video {
     aspect-ratio: 16/9;
-    height: 40vw;
-    max-height: 40vh;
+    width: 100%;
+    max-height: 60vh;
+    max-width: 60vh;
+
+    border: none;
 }
 
 
@@ -217,7 +284,10 @@ header {
 }
 
 section {
-    padding: 5rem;
+    padding-left: calc(10vw);
+    padding-right: calc(10vw);
+    padding-top: calc(5vh);
+    padding-bottom: calc(5vh);
     overflow-x: hidden;
 }
 
@@ -247,11 +317,6 @@ section {
     padding: 0px;
     height: 25%;
 
-    font-size: 10vw;
-}
-
-.header {
-    color: lightgray;
 }
 
 .call-to-action {
@@ -291,6 +356,8 @@ section {
 }
 
 .hero-section {
+
+    box-sizing: border-box;
     background-color: var(--secondary-background-color);
 
     display: flex;
@@ -311,10 +378,6 @@ section {
 
 .clip {
     overflow: hidden;
-}
-
-.hero-section > * {
-    margin: 0;
 }
 
 
@@ -342,6 +405,7 @@ section {
 
 .scratch-section {
     display: flex;
+    
 }
 .scratch-display {
     display: flex;
@@ -367,20 +431,41 @@ section {
     gap: 50px;
 }
 
+section h2 {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+
+    animation: h2-anim .5s forwards;
+
+}
+
 section h2::before {
     content: '';
     background-color: red;
     display: block;
-    position: relative;
-    top: 1.75rem;
-    right: 1rem;
-    width: .5rem;
-    height: 1.75rem;
+    position: absolute;
+    left: -.3em;
+
+    bottom: 0;
+
+    width: .15em;
+    height: 100%;
+
+    z-index: -1;
+
+
 }
 
 
+@keyframes pop {
+    0%, 100% {
+        transform: scale(100%, 100%);
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+    }
+    50% {
+        transform: 
+            scale(101%, 101%);
+
+    }
+}

@@ -26,21 +26,18 @@ function handleMouseMove(event){
 }
 
 function updateMouseFollow(){
-    posx += (lastMouseX - posx) * .25 ;    
-    posy += (lastMouseY - posy) * .25 ;    
+    posx += (lastMouseX - posx) * .25;    
+    posy += (lastMouseY - posy) * .25;    
 
-    circle.style.left = posx;
-    circle.style.top = posy;
+    circle.style.transform = `translate(${posx}px,${posy}px)`;
 }
 
 function handleMouseDown(event) {
-    //var circle = document.getElementById("mouse-circle");
-
     circleInner.classList.add("mouse-circle-grow");
 }
 
 function handleMouseUp(event) {
-    //var circle = document.getElementById("mouse-circle");
-
     circleInner.classList.remove("mouse-circle-grow");
 }
+
+
