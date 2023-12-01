@@ -112,6 +112,8 @@ header {
 
 .panel-list-wrapper{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 5rem;
 }
 
@@ -177,12 +179,17 @@ header {
     height: 80vh;
 }
 
+.scratch-frame {
+    aspect-ratio: 485/402;
+    height: 80vw;
+    max-height: 80vh;
+
+}
+
 .yt-video {
     aspect-ratio: 16/9;
     height: 40vw;
     max-height: 40vh;
-
-    width: 80%;
 }
 
 
@@ -210,9 +217,8 @@ header {
 }
 
 section {
-    width: 100%;
-
     padding: 5rem;
+    overflow-x: hidden;
 }
 
 .mouse-circle {
@@ -241,7 +247,7 @@ section {
     padding: 0px;
     height: 25%;
 
-    font-size: 3vw;
+    font-size: 10vw;
 }
 
 .header {
