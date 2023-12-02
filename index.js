@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     posy = 0;
 
     document.onmousemove = handleMouseMove;
+    //document.onscroll = handleMouseMove;
+
     document.onmousedown = handleMouseDown;
     document.onmouseup = handleMouseUp;
 
@@ -24,6 +26,8 @@ function handleMouseMove(event){
     lastMouseX = event.clientX - rect.left - (cRect.width/2);
     lastMouseY = event.clientY - rect.top - (cRect.height/2);
 }
+
+
 
 function updateMouseFollow(){
     posx += (lastMouseX - posx) * .25;    

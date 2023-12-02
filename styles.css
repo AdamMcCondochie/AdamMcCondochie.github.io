@@ -9,7 +9,67 @@
     box-sizing: border-box;
 }
 
+.icon {
+    aspect-ratio: 1/1;
+    color: white;
+    width: 2.5rem;
+
+    filter: invert(100%) sepia(27%) saturate(5051%) hue-rotate(173deg) brightness(105%) contrast(104%);
+}
+
+.card {
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: solid white ;
+    color: white;
+
+    background-color: var(--main-background-color);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 20px 0 black;
+    border-radius: 5px;
+
+    max-height: 90vh;
+}
+
+.card:hover {
+
+    border: solid var(--clr-red) ;
+    transition: border .25s,
+        background-color .25s;
+}
+
+
+.panel img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.panel {
+    aspect-ratio: 1/1;
+    width: 30%;
+    min-width: 50vh;
+}
+
+.panels-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 100%;
+
+    gap: 2em;
+}
+
+
+
 :root {
+    --clr-red: rgba(216, 43, 43, 1);
+
     --main-background-color: rgb(26, 35, 53);
     --secondary-background-color: rgb(0, 0, 12);
     --tertiary-background-color: rgb(218, 214, 214);
@@ -25,7 +85,9 @@ html {
 }
 
 body{
-    background-color: var(--main-background-color);
+    background-color: rgb(38, 62, 92);
+    background-color: var(--secondary-background-color);
+
     color: var(--a-color);
 }
 
@@ -70,11 +132,12 @@ header {
     position: sticky;
     top: 0px;
     bottom: 0px;
-    z-index: 2;
+    z-index: 9999;
 }
 
 .navbar {
     position: relative;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -144,6 +207,16 @@ header {
     gap: 5rem;
 }
 
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
 
 .panel-list {
     display: flex;
@@ -152,18 +225,26 @@ header {
     
     position:relative;
     
-    background-color: rgb(26, 35, 53);
+    background-color: rgb(212, 217, 228);
+    box-shadow: 5px 5px 20px 0 rgba(0,0,0,.25);
+    color: black;
     border-radius: 10px;
     gap: .25rem;
     margin: 0;
     padding: 1rem;
 
     top:0;
-    transition: top ease 0.1s;
+    transition: 
+        top ease 0.1s,
+        background-color 0.1s,
+        color .1s;
 }
 
 .panel-list:hover {
     top: -5px;
+    background-color: var(--main-background-color);
+    color: white;
+
 }
 
 .grid-container {
@@ -284,30 +365,16 @@ header {
 }
 
 section {
+    position: relative;
     padding-left: calc(10vw);
     padding-right: calc(10vw);
     padding-top: calc(5vh);
     padding-bottom: calc(5vh);
-    overflow-x: hidden;
+
+    z-index: 3;
 }
 
-.mouse-circle {
-    position: relative;
-    width: 0px;
-    height: 0px;
-}
 
-.mouse-circle-content {
-    width: 50vh;
-    height: 50vh;
-    background-color: rgb(225,225,225, .02);
-    border-radius: 100%;
-    transition: transform .1s ease-in-out; 
-}
-
-.mouse-circle-grow {
-    transform: scale(0.9);
-}
 
 .title-section {
     display: flex;
@@ -356,9 +423,7 @@ section {
 }
 
 .hero-section {
-
     box-sizing: border-box;
-    background-color: var(--secondary-background-color);
 
     display: flex;
     flex-direction: column;
@@ -374,6 +439,36 @@ section {
     min-height: 100%;
 
     text-align: left;
+}
+
+.hero-main {
+    z-index: 1;
+}
+
+.hero-main h1 {
+    mix-blend-mode: color-burn;
+}
+
+.mouse-circle {
+    position: relative;
+    width: 0px;
+    height: 0px;
+
+
+
+}
+
+.mouse-circle-content {
+    width: 50vh;
+    height: 50vh;
+    background-color: var(--clr-red);
+    border-radius: 100%;
+    transition: transform .1s ease-in-out; 
+
+}
+
+.mouse-circle-grow {
+    transform: scale(0.9);
 }
 
 .clip {
@@ -432,12 +527,15 @@ section {
 }
 
 section h2 {
+    font-size: 2em;
     position: relative;
-    display: inline-block;
+    display: block;
+    text-align: center;
+
+    margin: 5;
+    
+    animation: pop .5s forwards;
     z-index: 1;
-
-    animation: h2-anim .5s forwards;
-
 }
 
 section h2::before {
@@ -445,12 +543,12 @@ section h2::before {
     background-color: red;
     display: block;
     position: absolute;
-    left: -.3em;
+
 
     bottom: 0;
 
-    width: .15em;
-    height: 100%;
+    width: 100%;
+    height: .05em;
 
     z-index: -1;
 
