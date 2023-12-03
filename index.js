@@ -1,9 +1,18 @@
+const hasCursor = window.matchMedia('(pointer:fine)').matches;
 
 document.addEventListener('DOMContentLoaded', function() {
+
     circle = document.getElementById("mouse-circle");
     circleInner = document.getElementById("mouse-circle-content");
-
     scrollMoreText = document.getElementById("scrollmore");
+
+    if(!hasCursor) //No cursor means mobile
+    {
+        circleInner.style.opacity = 0;
+        scrollMoreText.style.opacity = 0;
+
+        return;
+    }
 
     lastMouseX = 0;
     lastMouseY = 0;
@@ -12,19 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
     posy = 0;
 
     document.onmousemove = handleMouseMove;
+    document.onscroll = handleMouseScroll;
 
     document.onmousedown = handleMouseDown;
     document.onmouseup = handleMouseUp;
 
-    document.onscroll = handleMouseScroll;
-
     setInterval(updateMouseFollow, 25);
 
-
-
-
  }, false);
-
 
 function handleMouseMove(event){
     var parent = circle.parentNode;
@@ -33,14 +37,10 @@ function handleMouseMove(event){
 
     lastMouseX = event.clientX - rect.left - (cRect.width/2);
     lastMouseY = event.clientY - rect.top - (cRect.height/2);
-
-
 }
 
 function handleMouseScroll(event){
     lastMouseY += window.scrollY - prevScrollpos; 
-
-
 
     if(window.scrollY > 50){
         scrollMoreText.style.opacity =  (1 - (window.scrollY / 250))
