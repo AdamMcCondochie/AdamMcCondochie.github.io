@@ -4,8 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adam McCondochie</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="index.js"></script> 
+    <script src="https://kit.fontawesome.com/19232c9963.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script src="index.js"></script> 
 </head>
 <body>
 
@@ -14,10 +15,10 @@
             <a href="index.html"><h2>Adam McCondochie</h2></a>
 
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="works.html">Works</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="./">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./projects.html">Projects</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -36,7 +37,7 @@
     
                 <div class="panel-list-wrapper">
                     <ul class="panel-list">
-                        <li><h3>Frontend Web Design</h3></li>
+                        <li><h3>Web Development</h3></li>
                         <li>HTML/CSS</li>
                         <li>JS/TS</li>
                         <li>React/Next JS</li>
@@ -56,30 +57,59 @@
                         <li>InDesign</li>
                     </ul>
                 </div>
+
+                <p id="scrollmore" class="scroll-more whisper">Scroll For More</p>
             </section>
 
 
-        <section>
-            <h2>About</h2>
+        <section id="about-section">
+            <h2>About Me</h2>
             <div class="card">
                 <p>I'm a Blanchardstown CTC Learner currently studying Digital Media in Dublin, Ireland. I'm interested in all things software and gaming and like to program in my free time.</p>
+            
+                <a href="about.html" class="call-to-action">Learn More</a>
             </div>
+            
         </section>
 
-        <section>
-            <h2>See My Projects</h2>
+        <section id="projects-section">
+            <h2>Projects</h2>
             <div class="card">
                 <div class="panels-container">
-                    <h3>Brochure Work</h3>
-                    <h3>Game Development</h3>
-                    <h3>Brochure Work</h3>
-                </div>
-                    <button href="works.html" class="call-to-action">See More</button>
+
+                    <a href="./projects.html#interactiveapp" class="cover-container">
+                        <img src="images/AppMockup/SteamAppMockProfilePage.jpg">
+                        <div>
+                            <h3>Interactive App Mockup</h3>
+
+                            <p>A Steam App concept mocked up in Photoshop and made Interactive</p>
+                        </div>
+                    </a>
+                    
+                    <a href="projects.html#scratchgames" class="cover-container">
+                        <img src="images/Spaceteroids.PNG">
+                        <div>
+                            <h3>Scratch Games</h3>
+
+                            <p>A space shooter game where you pilot a ship and shoot asteroids.</p>
+                        </div>
+                    </a>
+              
+                    <a href="./projects.html#brochures" class="cover-container">
+                        <img src="images/booklet/Youghal Clock Gate Tower.jpg">
+                        <div>
+                            <h3>Brochure Covers</h3>
+
+                            <p>A set of brochure covers showcasing various areas in Ireland</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="projects.html" class="call-to-action">See More</a>
             </div>
         </section>
 
-        <section>
-            <h2>Contact</h2>
+        <section id="contact">
+            <h2>Contact Me</h2>
             <div class="card">
                 <h3>My Links</h3>
                 <ul>
@@ -93,15 +123,6 @@
     
     <footer class="footer">
         <section class="footer-links">
-            <h3>Contact</h3>
-            <span>adammccondochie@gmail.com</span>
-            <span>Github</span>
-        </section>
-
-        <section class="footer-links">
-            <h3>Work</h3>
-            <span>Graphic Design</span>
-            <span>Game Development</span>
         </section>
     </footer>
 </body>

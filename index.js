@@ -1,6 +1,9 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     circle = document.getElementById("mouse-circle");
     circleInner = document.getElementById("mouse-circle-content");
+
+    scrollMoreText = document.getElementById("scrollmore");
 
     lastMouseX = 0;
     lastMouseY = 0;
@@ -9,12 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
     posy = 0;
 
     document.onmousemove = handleMouseMove;
-    //document.onscroll = handleMouseMove;
 
     document.onmousedown = handleMouseDown;
     document.onmouseup = handleMouseUp;
 
-    setInterval(updateMouseFollow, 25)
+    document.onscroll = handleMouseScroll;
+
+    setInterval(updateMouseFollow, 25);
+
+
+
+
  }, false);
 
 
@@ -25,9 +33,19 @@ function handleMouseMove(event){
 
     lastMouseX = event.clientX - rect.left - (cRect.width/2);
     lastMouseY = event.clientY - rect.top - (cRect.height/2);
+
+
 }
 
+function handleMouseScroll(event){
+    lastMouseY += window.scrollY - prevScrollpos; 
 
+
+
+    if(window.scrollY > 50){
+        scrollMoreText.style.opacity =  (1 - (window.scrollY / 250))
+    }
+}
 
 function updateMouseFollow(){
     posx += (lastMouseX - posx) * .25;    
@@ -43,5 +61,6 @@ function handleMouseDown(event) {
 function handleMouseUp(event) {
     circleInner.classList.remove("mouse-circle-grow");
 }
+
 
 

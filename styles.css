@@ -23,11 +23,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
-    border: solid white ;
+    border: solid var(--clr-light-gray) ;
     color: white;
 
-    background-color: var(--main-background-color);
+    background-color: var(--clr-grey);
     backdrop-filter: blur(5px);
     box-shadow: 0 0 20px 0 black;
     border-radius: 5px;
@@ -38,8 +39,8 @@
 .card:hover {
 
     border: solid var(--clr-red) ;
-    transition: border .25s,
-        background-color .25s;
+    transition: border .1s,
+        background-color .1s;
 }
 
 
@@ -62,22 +63,29 @@
     flex-wrap: wrap;
     height: 100%;
 
-    gap: 2em;
+    gap: .5em;
 }
 
+
+.panels-container > * {
+    flex-basis: calc(33% - .5em);
+}
 
 
 :root {
     --clr-red: rgba(216, 43, 43, 1);
-
-    --main-background-color: rgb(26, 35, 53);
-    --secondary-background-color: rgb(0, 0, 12);
-    --tertiary-background-color: rgb(218, 214, 214);
+    --clr-light-gray: rgb(73, 85, 112);
+    --clr-grey: rgb(26, 35, 53);
+    --clr-dark-grey: rgb(0, 0, 12);
 
     --a-color: rgb(218, 231, 228);
     --a-color-highlight: white;
 
     --navbar-height:
+}
+
+:root .darkmode {
+    
 }
 
 html {
@@ -86,9 +94,11 @@ html {
 
 body{
     background-color: rgb(38, 62, 92);
-    background-color: var(--secondary-background-color);
+    background-color: var(--clr-dark-grey);
 
     color: var(--a-color);
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
@@ -145,8 +155,10 @@ header {
 
     padding-left: 1rem;
     padding-right: 1rem;
-    border-bottom: solid white 1px;
-    background-color: rgba(0, 0, 0, 1);
+    padding-top: 1rem;
+
+    border-bottom: solid var(--clr-light-gray) 1px;
+    background-color: var(--clr-dark-grey);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px 0 rgba(0,0,0,.4);
 
@@ -225,13 +237,15 @@ header {
     
     position:relative;
     
-    background-color: rgb(212, 217, 228);
+    background-color: var(--clr-light-gray);
     box-shadow: 5px 5px 20px 0 rgba(0,0,0,.25);
-    color: black;
+    color: rgb(253, 252, 252);
     border-radius: 10px;
     gap: .25rem;
     margin: 0;
     padding: 1rem;
+
+    box-shadow: 0 0 0 0 white;
 
     top:0;
     transition: 
@@ -240,9 +254,20 @@ header {
         color .1s;
 }
 
+.scroll-more {
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
 .panel-list:hover {
     top: -5px;
-    background-color: var(--main-background-color);
+    background-color: var(--clr-grey);
+    box-shadow: 0 0 0 2px white;
     color: white;
 
 }
@@ -400,6 +425,9 @@ section {
     border-radius: 100px;
     box-shadow: 0px 0px 5px 0px coral;
 
+    max-width: 25vw;
+
+    margin: 1em;
     transition: 
         background-color .08s linear,
         color .08s linear;
@@ -442,11 +470,12 @@ section {
 }
 
 .hero-main {
+    margin: 5vw;
     z-index: 1;
 }
 
 .hero-main h1 {
-    mix-blend-mode: color-burn;
+    mix-blend-mode:difference;
 }
 
 .mouse-circle {
@@ -459,8 +488,8 @@ section {
 }
 
 .mouse-circle-content {
-    width: 50vh;
-    height: 50vh;
+    width: 40vh;
+    height: 40vh;
     background-color: var(--clr-red);
     border-radius: 100%;
     transition: transform .1s ease-in-out; 
@@ -470,6 +499,63 @@ section {
 .mouse-circle-grow {
     transform: scale(0.9);
 }
+
+.cover-container {
+    position: relative;
+
+    aspect-ratio: 1/1;
+}
+
+.cover-container > div {
+    box-sizing: border-box;
+    padding: 1em;
+
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+
+    opacity: 0;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+
+    overflow-y: hidden;
+    height: 0%;
+
+
+    transition: 
+    opacity .1s,
+    height .1s;
+}
+
+.cover-container:hover > div {
+    opacity: 1;
+
+    height: fit-content;
+    max-height: 100%;
+}
+
+.cover-container > img {
+    object-fit: cover;
+    object-position: 25% 0%;
+
+    opacity: 1;
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    transition: object-position 1s;
+
+}
+
+.cover-container:hover > img {
+    opacity: 0.8;
+    object-position: 75% 100%;
+
+    transition: object-position 1s;
+}
+
+
 
 .clip {
     overflow: hidden;
@@ -530,7 +616,6 @@ section h2 {
     font-size: 2em;
     position: relative;
     display: block;
-    text-align: center;
 
     margin: 5;
     
