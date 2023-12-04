@@ -442,10 +442,9 @@ section {
     background-color: var(--clr-red);
     border-radius: 100%;
     transition: transform .1s ease-in-out; 
-
 }
 
-.mouse-circle-grow {
+.mouse-circle-shrink {
     transform: scale(0.9);
 }
 

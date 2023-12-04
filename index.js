@@ -55,11 +55,11 @@ function updateMouseFollow(){
 }
 
 function handleMouseDown(event) {
-    circleInner.classList.add("mouse-circle-grow");
+    circleInner.classList.add("mouse-circle-shrink");
 }
 
 function handleMouseUp(event) {
-    circleInner.classList.remove("mouse-circle-grow");
+    circleInner.classList.remove("mouse-circle-shrink");
 }
 
 
