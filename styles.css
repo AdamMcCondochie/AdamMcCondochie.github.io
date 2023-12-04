@@ -340,7 +340,8 @@ header {
 
 
 .whisper {
-    opacity: 0.3;
+    opacity: 0.25;
+    color: var(--clr-dark-grey);
 }
 
 .unselectable {
@@ -374,34 +375,25 @@ section {
 }
 
 .call-to-action {
-    background-color: coral;
-    color: black;
-
-    font-weight: 400;
+    border: none;
+    border-radius: 100px;
+    background-color: var(--clr-red);
+    color: white;
 
     padding: 0.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-
-    border: none;
-    border-radius: 100px;
-    box-shadow: 0px 0px 5px 0px coral;
-
-    max-width: 25vw;
-
     margin: 1em;
+    max-width: 30vw;
+
     transition: 
         background-color .08s linear,
         color .08s linear;
 }
 
 .call-to-action:hover {
-    background-color: rgb(189, 12, 12);
-    color: white;
-
-    transition: 
-        background-color .08s linear,
-        color .08s linear;
+    background-color: coral;
+    color: var(--clr-dark-grey);
 }
 
 .center {
@@ -423,7 +415,6 @@ section {
     color: var(--clr-white);
 
     min-height: 100dvh;
-
     text-align: left;
 }
 
