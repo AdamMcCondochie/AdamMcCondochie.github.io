@@ -18,3 +18,20 @@ window.onscroll = function() {
 
   prevScrollpos = currentScrollPos;
 } 
+
+function focusImage(img){
+  var imageviewer = document.getElementById("image-viewer");
+  imageviewer.classList.remove("hidden");
+
+  var fullimage = document.getElementById("full-image");
+  fullimage.src = img.src;
+}
+
+function hide(element){
+  element.classList.add('hidden');
+}
+
+function toggleShow(elementId){
+  var e = document.getElementById(element);
+  e.classList.toggle("hidden");
+}

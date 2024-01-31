@@ -48,8 +48,11 @@ function handleMouseScroll(event){
 }
 
 function updateMouseFollow(){
-    posx += (lastMouseX - posx) * .25;    
-    posy += (lastMouseY - posy) * .25;    
+    var distX = (lastMouseX - posx);
+    var distY = (lastMouseY - posy);
+
+    posx += distX * .25;    
+    posy += distY * .25;    
 
     circle.style.transform = `translate(${posx}px,${posy}px)`;
 }
